@@ -1,3 +1,8 @@
+# convert categorical columns to string
+# findgroup function: update for categorical
+# bestsplitpoint function: update for categorical
+
+
 import pandas as pd
 import numpy as np
 from sklearn.cross_validation import train_test_split
@@ -8,7 +13,7 @@ df_train = pd.read_csv('data/cleaned_training_data.csv').iloc[0:100, :]
 df_test = pd.read_csv('data/cleaned_testing_data.csv')
 
 # np.random.seed(12345)
-##### TEST@
+
 
 # random sample dataset
 def sampleData(dataset, frac):
@@ -115,7 +120,7 @@ def split(node, max_depth, min_sample_leaf, max_features, depth):
 
     if depth >= max_depth:
         node['left'] = terminate(left)
-        node['right'] = terminate(right)
+        node['right'] = terminate(left)
         return None
 
     if len(left) <= min_sample_leaf:
